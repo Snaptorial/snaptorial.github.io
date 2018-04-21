@@ -1,0 +1,131 @@
+<!DOCTYPE HTML >
+<html>
+
+<head>
+	<title>Snaptoiral</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+	<link rel="stylesheet" href="assets/css/main.css" />
+	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css"  babakshay loves baru/><![endif]-->
+	<style>
+		.right {
+			position: relative;
+			right: -1000px;
+			top: 100px;
+		}
+
+		ul {
+			list-style-type: none;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Header -->
+		<header id="header">
+			<div class="inner">
+
+				<!-- Logo -->
+				<a href="index.html" class="logo">
+					<span class="symbol"><img src="images/logo.svg" alt="" /></span><span class="title">Snaptorial</span>
+				</a>
+
+				<!-- Nav -->
+				<nav>
+					<ul>
+						<li><a href="#menu">Menu</a></li>
+					</ul>
+				</nav>
+
+			</div>
+		</header>
+
+		<!-- Menu -->
+		<nav id="menu">
+			<h2>Menu</h2>
+			<ul>
+				<li><a href="index.html">Home</a></li>
+
+			</ul>
+		</nav>
+
+		<!-- Main -->
+		<div id="main">
+			<div class="inner">
+				<header>
+					<h1>Snaptorial
+					</h1>
+					<section>
+						<input id="image" type="file"/>
+						<button onclick="callTesseract(document.getElementById('image').value)" type="submit"> Submit</button>
+					</section>
+
+
+			</div>
+			</article>
+			</section>
+		</div>
+
+
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+
+				<ul id="results">
+					<h3> Summary </h3>
+					<li id="summary">
+
+					</li>
+					<br>
+					<h3> Sentiment </h3>
+					<li id="sentiment">
+
+					</li>
+					<h3> Classification </h3>
+					<li id="classification">
+
+						<li>
+							<li id="concepts">
+								<br>
+								<h3> High Usage Words  </h3>
+
+								<ul id="concept_list"> </ul>
+								<canvas id="concept_graph"> </canvas>
+
+								<!--<h3> Repeatedly Used Names </h3>
+								 <ul id="entity_list"> </ul>
+								<canvas id="people_graph"> </canvas>!-->
+							</li>
+
+				</ul>
+			</div>
+		</footer>
+
+	</div>
+
+	<!-- Scripts -->
+<script type="text/javascript">
+function callTesseract(myImage) {
+	Tesseract.detect(myImage)
+		.then(function(result){
+    console.log(result)
+})
+}
+</script>
+<script src='https://cdn.rawgit.com/naptha/tesseract.js/1.0.10/dist/tesseract.js'></script>
+
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/skel.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+	<script src="assets/js/main.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>!-->
+</body>
+
+</html>
