@@ -193,7 +193,7 @@
 		var CLIENT_ID = '776765416863-2lumdugsq4nu8ca1spmm2p40valta2t7.apps.googleusercontent.com';
 		var API_KEY = 'AIzaSyBxz1isCpajACeRhgoPBP0krR90DBV9W54';
 		var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
-		var SCOPES = ["https://www.googleapis.com/auth/calendar", "https://www.googleapis.com/auth/plus.me", "https://www.googleapis.com/auth/userinfo.email"];
+		var SCOPES = "https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/plus.me https://www.googleapis.com/auth/userinfo.email";
 
 		var authorizeButton = document.getElementById('authorize-button');
 		var signoutButton = document.getElementById('signout-button');
@@ -223,7 +223,7 @@
 				authorizeButton.style.display = 'none';
 				signoutButton.style.display = 'block';
 				listUpcomingEvents();
-				var request = gapi.client.plus.people.get({
+				var request = gapi.client.plus.me.get({
 					'userId': 'me'
 				});
 
