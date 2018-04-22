@@ -253,7 +253,7 @@
 					appendPre('Event created: ' + event_desc);
 					console.log(event.htmlLink)
 				});
-				document.getElementById( "cal" + day_id).innerHTML += event_desc;
+				document.getElementById( "cal" + day_id).innerHTML += "<div class='ev'> " + event_desc + "</div>";
 			}
 
 		}
