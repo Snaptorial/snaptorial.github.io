@@ -109,17 +109,17 @@
 
 						</div>
 						<div class="calendar__week">
-							<div id="cal1" class="calendar__day day">1</div>
-							<div id="cal2" class="calendar__day day">2</div>
-							<div id="cal3" class="calendar__day day">3</div>
-							<div id="cal4" class="calendar__day day">4</div>
-							<div id="cal5" class="calendar__day day">5</div>
-							<div id="cal6" class="calendar__day day">6</div>
-							<div id="cal7" class="calendar__day day">7</div>
+							<div id="cal01" class="calendar__day day">1</div>
+							<div id="cal02" class="calendar__day day">2</div>
+							<div id="cal03" class="calendar__day day">3</div>
+							<div id="cal04" class="calendar__day day">4</div>
+							<div id="cal05" class="calendar__day day">5</div>
+							<div id="cal06" class="calendar__day day">6</div>
+							<div id="cal07" class="calendar__day day">7</div>
 						</div>
 						<div class="calendar__week">
-							<div id="cal8" class="calendar__day day">8</div>
-							<div id="cal9" class="calendar__day day">9</div>
+							<div id="cal08" class="calendar__day day">8</div>
+							<div id="cal09" class="calendar__day day">9</div>
 							<div id="cal10" class="calendar__day day">10</div>
 							<div id="cal11" class="calendar__day day">11</div>
 							<div id="cal12" class="calendar__day day">12</div>
@@ -226,7 +226,9 @@
 				str = string;
 				matches = regex.exec(str);
 				var event_name = str.match(r2)
-				console.log( event_name)
+				console.log(event_name)
+				event_name = event_name[0];
+				console.log("Name: " + event_name)
 				console.log(matches)
 				date = matches[1];
 				day_id = date.substring(date.length - 2, date.length);
@@ -247,7 +249,7 @@
 				console.log(d)
 				d.setHours(hours, minutes);
 				var event = {
-					'summary': event_desc,
+					'summary': event_name,
 					'description': event_desc,
 					'start': {
 						'dateTime': d.toISOString(),
