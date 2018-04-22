@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<title>Snaptoiral</title>
+	<title>Snaptorial</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -256,7 +256,9 @@ var SCOPES = "https://www.googleapis.com/auth/calendar";
               if (!when) {
                 when = event.start.date;
               }
-              appendPre(event.summary + ' (' + when + ')')
+              var d = new Date(when);
+              var tiempo = d.toLocaleString();;
+              appendPre(event.summary + ' ' + tiempo + '.')
             }
           } else {
             appendPre('No upcoming events found.');
