@@ -142,7 +142,7 @@ function sendToCalendar(date_given,hours,minutes,event) {
 	console.log(hours)
 	console.log(minutes)
 	console.log(event)
-	var d = new Date(date_given + (new Date()).getFullYear());
+	var d = new Date(date_given + "/" + (new Date()).getFullYear());
 	console.log(d)
     d.setHours(hours, minutes);
 	var event = {
