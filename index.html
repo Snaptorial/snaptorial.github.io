@@ -193,7 +193,7 @@
 		var CLIENT_ID = '776765416863-2lumdugsq4nu8ca1spmm2p40valta2t7.apps.googleusercontent.com';
 		var API_KEY = 'AIzaSyBxz1isCpajACeRhgoPBP0krR90DBV9W54';
 		var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
-		var SCOPES = "https://www.googleapis.com/auth/calendar";
+		var SCOPES = "https://www.googleapis.com/auth/calendar https://www.googleapis.com/auth/userinfo.email";
 
 		var authorizeButton = document.getElementById('authorize-button');
 		var signoutButton = document.getElementById('signout-button');
@@ -228,10 +228,6 @@
 				});
 
 				request.execute(function(resp) {
-					console.log('ID: ' + resp.id);
-					console.log('Display Name: ' + resp.displayName);
-					console.log('Image URL: ' + resp.image.url);
-					console.log('Profile URL: ' + resp.url);
 					console.log(resp);
 				});
 
