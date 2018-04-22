@@ -162,6 +162,7 @@
 		var minutes;
 		var event;
 		var email;
+		var day_id;
 		//var ctx = canvas.getContext("2d");
 
 		function readURL(input) {
@@ -196,6 +197,8 @@
 				matches = regex.exec(str);
 				console.log(matches)
 				date = matches[1];
+				day_id = date.substring(-2);
+				console.log(day_id);
 				hours = parseInt(matches[2]);
 				minutes = parseInt(matches[3]);
 				event = matches.input;
@@ -250,6 +253,7 @@
 					appendPre('Event created: ' + event_desc);
 					console.log(event.htmlLink)
 				});
+				document.getElementById(day_id).innerHTML += event_desc;
 			}
 
 		}
