@@ -225,7 +225,8 @@
 				console.log(string)
 				str = string;
 				matches = regex.exec(str);
-				var event_name = str.match(r2)
+				var event_name = str.match(r2)[0]
+				console.log("Event name: " + event_name)
 				console.log(matches)
 				date = matches[1];
 				day_id = date.substring(date.length - 2, date.length);
