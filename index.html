@@ -215,13 +215,6 @@
 				updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
 				authorizeButton.onclick = handleAuthClick;
 				signoutButton.onclick = handleSignoutClick;
-				var request = gapi.client.plus.people.get({
-					'userId': 'me'
-				});
-
-				request.execute(function(resp) {
-					console.log(resp);
-				});
 			});
 		}
 
@@ -230,7 +223,13 @@
 				authorizeButton.style.display = 'none';
 				signoutButton.style.display = 'block';
 				listUpcomingEvents();
+				var request = gapi.client.plus.me.get({
+					'userId': 'me'
+				});
 
+				request.execute(function(resp) {
+					console.log(resp);
+				});
 
 			} else {
 				authorizeButton.style.display = 'block';
