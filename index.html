@@ -223,7 +223,7 @@
 				authorizeButton.style.display = 'none';
 				signoutButton.style.display = 'block';
 				listUpcomingEvents();
-				var request = gapi.client.plus.me.get({
+				var request = gapi.client.plus.people.get({
 					'userId': 'me'
 				});
 
