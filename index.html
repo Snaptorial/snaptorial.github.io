@@ -225,9 +225,9 @@
 				console.log(string)
 				str = string;
 				matches = regex.exec(str);
-				var event_name = str.match(r2)
-				console.log(event_name)
-				event_name = event_name[1];
+				var ev_name = str.match(r2)
+				console.log(ev_name)
+				event_name = ev_name.reduce(function (a, b) { return a.length > b.length ? a : b; });
 				console.log("Name: " + event_name)
 				console.log(matches)
 				date = matches[1];
