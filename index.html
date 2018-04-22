@@ -225,8 +225,8 @@
 				console.log(string)
 				str = string;
 				matches = regex.exec(str);
-				var event_name = str.match(r2)[0]
-				console.log("Event name: " + event_name)
+				var event_name = str.match(r2)
+				console.log( event_name)
 				console.log(matches)
 				date = matches[1];
 				day_id = date.substring(date.length - 2, date.length);
@@ -247,7 +247,7 @@
 				console.log(d)
 				d.setHours(hours, minutes);
 				var event = {
-					'summary': event_name,
+					'summary': event_desc,
 					'description': event_desc,
 					'start': {
 						'dateTime': d.toISOString(),
