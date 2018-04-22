@@ -278,9 +278,10 @@
 				});
 
 				request.execute(function(event) {
-					alertify.success('Added Event!').show();
+
 					document.getElementById("content").innerHTML = 'Event created: <a href="' + event.htmlLink + '">' + event_desc + "</a>";
 					console.log(event.htmlLink)
+					alertify.success('Added Event!').show();
 				});
 				document.getElementById("cal" + day_id).innerHTML += "<div class='ev'> " + event_name + "</div>";
 			}
