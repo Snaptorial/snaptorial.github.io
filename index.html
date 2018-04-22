@@ -197,7 +197,7 @@
 				matches = regex.exec(str);
 				console.log(matches)
 				date = matches[1];
-				day_id = date.substring(-2);
+				day_id = date.substring(date.length - 2,date.length);
 				console.log(day_id);
 				hours = parseInt(matches[2]);
 				minutes = parseInt(matches[3]);
