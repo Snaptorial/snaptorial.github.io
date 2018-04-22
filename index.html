@@ -81,8 +81,7 @@
 		<!-- Footer -->
 		<footer id="footer">
 			<div class="inner">
-
-
+				<iframe id = "calendar" src="" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 			</div>
 		</footer>
 
@@ -229,7 +228,9 @@
    'userId': 'me'
  });
  request.execute(function(resp) {
-   console.log(resp);
+	 var email = resp.emails[0].value
+   console.log(email);
+	 document.getElementById("calendar").src = "https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=" + email + "&amp;color=%2329527A&amp;ctz=America%2FLos_Angeles"
  });
 });
 
