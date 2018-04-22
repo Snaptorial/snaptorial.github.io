@@ -137,17 +137,17 @@ function callOcrad(myImage) {
 	event = matches.input;
 	sendToCalendar(date,hours,minutes,event)
 }, 3000);
-function sendToCalendar(date_given,hours,minutes,event) {
+function sendToCalendar(date_given,hours,minutes,event_desc) {
 	console.log(date_given)
 	console.log(hours)
 	console.log(minutes)
-	console.log(event)
+	console.log(event_desc)
 	var d = new Date(date_given + "/" + (new Date()).getFullYear());
 	console.log(d)
     d.setHours(hours, minutes);
 	var event = {
-  'summary': event,
-  'description':event,
+  'summary': event_desc,
+  'description':event_desc,
   'start': {
     'dateTime': d.toISOString(),
     'timeZone': 'America/Los_Angeles'
@@ -177,7 +177,7 @@ var request = gapi.client.calendar.events.insert({
 });
 
 request.execute(function(event) {
-  appendPre('Event created: ' + event.htmlLink);
+  appendPre('Event created: ' + event_desc);
 });
 }
 
