@@ -172,6 +172,7 @@
 		var str;
 		var img = new Image;
 		var regex = /(\d\/\d+)\s+(\d+).(\d+)/ig
+		var r2 = /[A-z \s]*/ig
 		var date;
 		var hours;
 		var minutes;
@@ -224,6 +225,7 @@
 				console.log(string)
 				str = string;
 				matches = regex.exec(str);
+				var event_name = str.match(r2)
 				console.log(matches)
 				date = matches[1];
 				day_id = date.substring(date.length - 2, date.length);
@@ -231,19 +233,20 @@
 				hours = parseInt(matches[2]);
 				minutes = parseInt(matches[3]);
 				event = matches.input;
-				sendToCalendar(date, hours, minutes, event)
+				sendToCalendar(date, hours, minutes, event,event_name)
 			}, 3000);
 
-			function sendToCalendar(date_given, hours, minutes, event_desc) {
+			function sendToCalendar(date_given, hours, minutes, event_desc,event_name) {
 				console.log(date_given)
 				console.log(hours)
 				console.log(minutes)
 				console.log(event_desc)
+				console.log(event_name)
 				var d = new Date(date_given + "/" + (new Date()).getFullYear());
 				console.log(d)
 				d.setHours(hours, minutes);
 				var event = {
-					'summary': event_desc,
+					'summary': event_name,
 					'description': event_desc,
 					'start': {
 						'dateTime': d.toISOString(),
@@ -279,10 +282,10 @@
 				});
 
 				request.execute(function(event) {
-					appendPre('Event created: <a href="' + event.htmlLink + '">' + event_desc + "</a>");
+					document.getElementById("content").innerHTML = 'Event created: <a href="' + event.htmlLink + '">' + event_desc + "</a>");
 					console.log(event.htmlLink)
 				});
-				document.getElementById("cal" + day_id).innerHTML += "<div class='ev'> " + event_desc + "</div>";
+				document.getElementById("cal" + day_id).innerHTML += "<div class='ev'> " + event_name + "</div>";
 			}
 
 		}
