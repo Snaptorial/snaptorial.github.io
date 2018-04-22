@@ -9,8 +9,9 @@
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css"  babakshay loves baru/><![endif]-->
-	<script src="http://antimatter15.com/ocrad.js/ocrad.js">
-	</script>
+	<script src="http://antimatter15.com/ocrad.js/ocrad.js"> </script>
+	  <script src = "https://plus.google.com/js/client:platform.js" async defer> </script>
+
 
 	<style>
 		.right {
@@ -212,6 +213,8 @@
 				gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
 
 				// Handle the initial sign-in state.
+				console.log(gapi);
+				console.log(gapi.auth2)
 				updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
 				authorizeButton.onclick = handleAuthClick;
 				signoutButton.onclick = handleSignoutClick;
@@ -288,7 +291,28 @@
 	</script>
 	<script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()" onreadystatechange="if (this.readyState === 'complete') this.onload()">
 	</script>
+	<script>
+ function onSignInCallback(resp) {
+	 gapi.client.load('plus', 'v1', apiClientLoaded);
+}
+ function apiClientLoaded() {
+	 gapi.client.plus.people.get({userId: 'me'}).execute(handleEmailResponse);
+ }
 
+ /**
+	* Response callback for when the API client receives a response.
+	*
+	* @param resp The API response object with the user email and profile information.
+	*/
+ function handleEmailResponse(resp) {
+	 var primaryEmail;
+	 for (var i=0; i < resp.emails.length; i++) {
+		 if (resp.emails[i].type === 'account') primaryEmail = resp.emails[i].value;
+	 }
+	 document.getElementById('responseContainer').value = 'Primary email: ' +
+			 primaryEmail + '\n\nFull Response:\n' + JSON.stringify(resp);
+		 }
+	</script>
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/skel.min.js"></script>
 	<script src="assets/js/util.js"></script>
