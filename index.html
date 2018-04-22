@@ -131,7 +131,7 @@ function callOcrad(myImage) {
 	str = string;
 	matches = regex.exec(str);
 	console.log(matches)
-	date = parseInt(matches[1]);
+	date = matches[1];
 	hours = parseInt(matches[2]);
 	minutes = parseInt(matches[3]);
 	event = matches.input;
