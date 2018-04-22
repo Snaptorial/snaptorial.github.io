@@ -49,9 +49,7 @@
 			background-color: #fff;
 			color:black;
 		}
-		footer{
-			backgroud-color:white
-		}
+
 	</style>
 </head>
 
@@ -281,7 +279,7 @@
 				});
 
 				request.execute(function(event) {
-					appendPre('Event created: ' + event_desc);
+					appendPre('Event created: <a href="' + event.htmlLink + '">' + event_desc + "</a>");
 					console.log(event.htmlLink)
 				});
 				document.getElementById("cal" + day_id).innerHTML += "<div class='ev'> " + event_desc + "</div>";
