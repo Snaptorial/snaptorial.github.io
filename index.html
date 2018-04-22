@@ -137,17 +137,17 @@ function callOcrad(myImage) {
 	event = matches.input;
 	sendToCalendar(date,hours,minutes,event)
 }, 3000);
-function sendToCalendar(date_given,hours,minutes,event_desc) {
+function sendToCalendar(date_given,hours,minutes,event) {
 	console.log(date_given)
 	console.log(hours)
 	console.log(minutes)
-	console.log(event_desc)
+	console.log(event)
 	var d = new Date(date_given + "/" + (new Date()).getFullYear());
 	console.log(d)
     d.setHours(hours, minutes);
 	var event = {
-  'summary': event_desc,
-  'description':event_desc,
+  'summary': event,
+  'description':event,
   'start': {
     'dateTime': d.toISOString(),
     'timeZone': 'America/Los_Angeles'
@@ -240,7 +240,7 @@ var SCOPES = "https://www.googleapis.com/auth/calendar";
 			function listUpcomingEvents() {
         gapi.client.calendar.events.list({
           'calendarId': 'primary',
-          'timeMin': (new Date()).toLocaleDateString(),
+          'timeMin': (new Date()).toISOString(),
           'showDeleted': false,
           'singleEvents': true,
           'maxResults': 10,
