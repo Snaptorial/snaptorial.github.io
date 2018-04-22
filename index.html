@@ -282,7 +282,7 @@
 				});
 
 				request.execute(function(event) {
-					document.getElementById("content").innerHTML = 'Event created: <a href="' + event.htmlLink + '">' + event_desc + "</a>");
+					document.getElementById("content").innerHTML = 'Event created: <a href="' + event.htmlLink + '">' + event_desc + "</a>";
 					console.log(event.htmlLink)
 				});
 				document.getElementById("cal" + day_id).innerHTML += "<div class='ev'> " + event_name + "</div>";
